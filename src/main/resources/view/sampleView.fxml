@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="470.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SampleViewController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0c4275" height="62.0" stroke="BLACK" strokeType="INSIDE" width="717.0" />
+      <Label layoutX="195.0" layoutY="8.0" text="Student Register Form" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtName" layoutX="164.0" layoutY="88.0" prefHeight="32.0" prefWidth="167.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="33.0" layoutY="93.0" text="Name">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="126.0" text="Age">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="159.0" text="Phone Number">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="196.0" text="Grade">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="234.0" text="Address">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtAge" layoutX="164.0" layoutY="123.0" prefHeight="32.0" prefWidth="75.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtPhoneNumber" layoutX="164.0" layoutY="158.0" prefHeight="32.0" prefWidth="167.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtGrade" layoutX="164.0" layoutY="193.0" prefHeight="32.0" prefWidth="75.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextArea fx:id="txtAddress" layoutX="164.0" layoutY="229.0" prefHeight="179.0" prefWidth="200.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="374.0" layoutX="382.0" layoutY="74.0" stroke="BLACK" strokeType="INSIDE" width="3.0" />
+      <Button layoutX="303.0" layoutY="421.0" mnemonicParsing="false" onAction="#btnRegOnAction" prefHeight="32.0" prefWidth="61.0" style="-fx-background-color: green;" text="Register" textFill="WHITE" />
+      <Label layoutX="417.0" layoutY="118.0" text="Name">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblName" layoutX="536.0" layoutY="119.0" text="Name" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="419.0" layoutY="145.0" text="Age">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAge" layoutX="539.0" layoutY="148.0" text="Age" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="419.0" layoutY="173.0" text="Phone Number">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPhoneNumber" layoutX="540.0" layoutY="172.0" text="Age" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="420.0" layoutY="199.0" text="Grade">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="422.0" layoutY="225.0" text="Address">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblGrade" layoutX="541.0" layoutY="198.0" text="Age" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAddress" layoutX="542.0" layoutY="222.0" text="Age" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
