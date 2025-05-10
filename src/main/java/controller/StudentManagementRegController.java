@@ -3,11 +3,18 @@ package controller;
 import db.dbConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import model.Student;
+
+import java.io.IOException;
 
 
 public class StudentManagementRegController {
@@ -31,6 +38,7 @@ public class StudentManagementRegController {
 
     @FXML
     void btnSubmitOnAction(ActionEvent event) {
+        int oldSize = dbConnection.getInstance().getStudentList().size();
         dbConnection.getInstance().getStudentList().add(
                 new Student(
                         txtStudentId.getText(),
@@ -41,10 +49,18 @@ public class StudentManagementRegController {
                         txtPassword.getText()
                 )
         );
-        int size = dbConnection.getInstance().getStudentList().size();
-        if (size == 1){
+        int newSize = dbConnection.getInstance().getStudentList().size();
+        if (oldSize<newSize){
             new Alert(Alert.AlertType.CONFIRMATION,txtStudentId.getText()+" Successfully Added").show();
         }
     }
 
+    public void btnHomeOnAction(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/studentManagement_Home.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }
