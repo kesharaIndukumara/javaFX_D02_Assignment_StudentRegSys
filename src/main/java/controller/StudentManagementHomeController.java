@@ -4,6 +4,8 @@ import db.dbConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -22,12 +24,17 @@ public class StudentManagementHomeController {
 
     @FXML
     void btnLoginOnAction(ActionEvent event) throws IOException {
-        int index = search(txtEmail.getText());
+        int index = search(txtEmail.getText(),txtPassword.getText());
         if(index != -1){
-            Stage stage = new Stage();
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/studentManagement_DashBoard.fxml"))));
-            stage.setTitle("Student Management System - DashBoard");
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/studentManagement_DashBoard.fxml"));
+            Parent root = loader.load();
+
+            StudentManagementDashBoardController controller = loader.getController();
+            controller.setLogStudentIndex(index);
+
+            Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
             stage.show();
 
         }else{
@@ -39,22 +46,26 @@ public class StudentManagementHomeController {
 
     @FXML
     void btnNewStudentOnAction(ActionEvent event) throws IOException {
-        Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/studentManagement_Reg.fxml"))));
-        stage.setTitle("Student Management System - Register");
+//        Stage stage = new Stage();
+//        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/studentManagement_Reg.fxml"))));
+//        stage.setTitle("Student Management System - Register");
+//        stage.show();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/studentManagement_Reg.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
         stage.show();
 
     }
 
-    public int search(String str) {
+    public int search(String username, String password ) {
         int size = dbConnection.getInstance().getStudentList().size();
-        System.out.println(str);
 
         for (int i=0; i<size; i++){
             Student studentListObj = dbConnection.getInstance().getStudentList().get(i);
 
-            if(str.equalsIgnoreCase(studentListObj.getEmail())){
-
+            if(username.equalsIgnoreCase(studentListObj.getEmail()) && password.equalsIgnoreCase(studentListObj.getPassword())){
                 return i;
             }
         }
